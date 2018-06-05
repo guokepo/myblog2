@@ -30,18 +30,11 @@ def post_comment(request,post_pk):
             # 检查到数据不合法，重新渲染详情页，并且渲染表单的错误。
             # 因此传了三个模板变量给 detail.html，
             # 一个是文章（Post），一个是评论列表，一个是表单 form
-            # 注意这里我们用到了 post.comment_set.all() 方法，
-            # 这个用法有点类似于 Post.objects.all()
-            # 其作用是获取这篇 post 下的的全部评论，
-            # 因为 Post 和 Comment 是 ForeignKey 关联的，
-            # 因此使用 post.comment_set.all() 反向查询全部评论。
-           # comment_set是一个特殊的模型管理器
             comment_list = post.comment_set.all()
             context = {'post':post,
                        'form':form,
                        'comment_list':comment_list
             }
-
             return render(request,'blog/detail.html',context=context)
     #非POST请求返回到文章详情页
     return redirect(post)

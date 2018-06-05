@@ -110,7 +110,8 @@
                     <ul>
                         {% for category in category_list %}
                         <li>
-                            <a href="{% url 'blog:category' category.pk %}">{{ category.name }} <span class="post-count">(13)</span></a>
+                            <a href="{% url 'blog:category' category.pk %}">{{ category.name }}
+                                <span class="post-count">({{ category.num_posts }})</span></a>
                         </li>
                         {% empty %}
                         无分类
@@ -166,7 +167,7 @@
             <div class="col-md-12">
                 <p class="copyright">&copy 2018 - 采集自<a href="http://www.cssmoban.com/"
                                                         target="_blank" title="模板之家">模板之家</a>
-                    - <a href="http://zmrenwu.com/" title="网页模板" target="_blank">Joe's Blog</a>
+                    - <a href="https://guokepo.github.io/" title="网页模板" target="_blank">Joe's Blog</a>
                 </p>
             </div>
         </div>

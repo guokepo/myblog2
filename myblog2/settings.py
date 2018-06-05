@@ -120,8 +120,8 @@ TIME_ZONE = 'Asia/Shanghai'
 USE_I18N = True
 
 USE_L10N = True
-
-USE_TZ = True
+#mysql下归档为空，解决方法：将USE_TZ改为False
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
